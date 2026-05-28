@@ -1,0 +1,99 @@
+// Cross-platform keybindings.
+// On macOS swap "ctrl" for "cmd" where you like — these are tuned for Windows + Linux.
+[
+  // ─── Window / file navigation ────────────────────────────────
+  {
+    "key": "ctrl+shift+e",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.findInFiles"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.terminal.new"
+  },
+
+  // ─── Editor groups (splits) ──────────────────────────────────
+  { "key": "ctrl+k v", "command": "markdown.showPreviewToSide" },
+  { "key": "ctrl+\\",  "command": "workbench.action.splitEditor" },
+  { "key": "ctrl+k ctrl+\\", "command": "workbench.action.splitEditorOrthogonal" },
+  { "key": "ctrl+k w", "command": "workbench.action.closeEditorsInGroup" },
+
+  // ─── Tab navigation ──────────────────────────────────────────
+  { "key": "ctrl+alt+left",  "command": "workbench.action.previousEditor" },
+  { "key": "ctrl+alt+right", "command": "workbench.action.nextEditor" },
+
+  // ─── Selection / multi-cursor power ──────────────────────────
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+up",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Refactor / quick fix ────────────────────────────────────
+  {
+    "key": "ctrl+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Format ──────────────────────────────────────────────────
+  {
+    "key": "shift+alt+f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+  },
+
+  // ─── Toggle Vim quickly while learning ───────────────────────
+  {
+    "key": "ctrl+shift+alt+v",
+    "command": "vim.toggleVim"
+  },
+
+  // ─── Disable Tab-accept of inline suggestions (belt + braces) ─
+  {
+    "key": "tab",
+    "command": "-editor.action.inlineSuggest.commit",
+    "when": "inlineSuggestionVisible && !editorReadonly"
+  }
+]

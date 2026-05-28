@@ -1,0 +1,389 @@
+{
+  // ─────────────────────────────────────────────────────────────
+  //  EDITOR — fonts, rendering, behavior
+  // ─────────────────────────────────────────────────────────────
+  "editor.fontFamily": "'Fira Code', 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss05', 'ss07'",
+  "editor.fontWeight": "400",
+  "editor.lineHeight": 1.6,
+  "editor.letterSpacing": 0.3,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderLineHighlight": "gutter",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.indentation": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.wordWrap": "off",
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.suggestSelection": "first",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.snippetSuggestions": "inline",
+  "editor.suggest.preview": true,
+  "editor.parameterHints.enabled": true,
+  "editor.hover.delay": 250,
+
+  // ─────────────────────────────────────────────────────────────
+  //  AI AUTOCOMPLETE — DISABLED (you use a sidebar AI app instead)
+  // ─────────────────────────────────────────────────────────────
+  "editor.inlineSuggest.enabled": false,
+  "editor.tabCompletion": "off",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.inlineSuggest.enable": false,
+  "tabnine.experimentalAutoImports": false,
+
+  // ─────────────────────────────────────────────────────────────
+  //  WORKBENCH — theme, icons, layout
+  // ─────────────────────────────────────────────────────────────
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 12,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.tree.indent": 16,
+  "workbench.list.smoothScrolling": true,
+  "workbench.activityBar.location": "default",
+  "workbench.sideBar.location": "left",
+  "workbench.layoutControl.enabled": false,
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": true,
+  "window.title": "${rootName}${separator}${activeEditorMedium}",
+  "window.density.editorTabHeight": "compact",
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.icons": true,
+
+  // ─────────────────────────────────────────────────────────────
+  //  FILES — saving, exclusions, encoding
+  // ─────────────────────────────────────────────────────────────
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": false,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.turbo": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.turbo/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/coverage": true,
+    "**/package-lock.json": true,
+    "**/*.min.*": true
+  },
+  "search.useIgnoreFiles": true,
+  "search.smartCase": true,
+
+  // ─────────────────────────────────────────────────────────────
+  //  TERMINAL — cross-platform with sensible defaults
+  // ─────────────────────────────────────────────────────────────
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font', 'Fira Code', 'JetBrains Mono', monospace",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "icon": "terminal-cmd"
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "bash": { "path": "bash", "icon": "terminal-bash" },
+    "zsh": { "path": "zsh" }
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  //  GIT
+  // ─────────────────────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.suggestSmartCommit": false,
+  "git.pruneOnFetch": true,
+  "git.fetchOnPull": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "scm.diffDecorationsGutterWidth": 3,
+
+  // ─────────────────────────────────────────────────────────────
+  //  TYPESCRIPT / JAVASCRIPT
+  // ─────────────────────────────────────────────────────────────
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.completeFunctionCalls": false,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+  "typescript.inlayHints.parameterTypes.enabled": false,
+  "typescript.surveys.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.suggest.autoImports": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "npm.packageManager": "npm",
+  "npm.fetchOnlinePackageInfo": true,
+
+  // ─────────────────────────────────────────────────────────────
+  //  ESLINT + PRETTIER
+  // ─────────────────────────────────────────────────────────────
+  "eslint.enable": true,
+  "eslint.format.enable": false,
+  "eslint.run": "onType",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html"
+  ],
+  "eslint.useFlatConfig": true,
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": true,
+
+  // ─────────────────────────────────────────────────────────────
+  //  PER-LANGUAGE FORMATTERS
+  // ─────────────────────────────────────────────────────────────
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 4
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  //  REACT / NEXT.JS
+  // ─────────────────────────────────────────────────────────────
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "emmet.triggerExpansionOnTab": false,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+
+  // ─────────────────────────────────────────────────────────────
+  //  ANGULAR
+  // ─────────────────────────────────────────────────────────────
+  "html.format.wrapAttributes": "force-expand-multiline",
+
+  // ─────────────────────────────────────────────────────────────
+  //  PYTHON
+  // ─────────────────────────────────────────────────────────────
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.functionReturnTypes": false,
+  "python.terminal.activateEnvironment": true,
+
+  // ─────────────────────────────────────────────────────────────
+  //  C / C++
+  // ─────────────────────────────────────────────────────────────
+  "C_Cpp.intelliSenseEngine": "default",
+  "C_Cpp.autocompleteAddParentheses": true,
+  "C_Cpp.default.cStandard": "c17",
+
+  // ─────────────────────────────────────────────────────────────
+  //  VIM — friendly defaults for someone learning
+  // ─────────────────────────────────────────────────────────────
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.smartRelativeLine": true,
+  "vim.leader": "<space>",
+  "vim.easymotion": false,
+  "vim.foldfix": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-z>": false,
+    "<C-f>": false,
+    "<C-s>": false,
+    "<C-p>": false,
+    "<C-w>": false
+  },
+  "vim.insertModeKeyBindings": [
+    { "before": ["j", "j"], "after": ["<Esc>"] },
+    { "before": ["j", "k"], "after": ["<Esc>"] }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "w"], "commands": ["workbench.action.files.save"] },
+    { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "e"], "commands": ["workbench.view.explorer"] },
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "/"], "commands": ["workbench.action.findInFiles"] },
+    { "before": [" ", " "], "commands": ["workbench.action.showCommands"] },
+    { "before": ["H"], "commands": ["workbench.action.previousEditor"] },
+    { "before": ["L"], "commands": ["workbench.action.nextEditor"] }
+  ],
+
+  // ─────────────────────────────────────────────────────────────
+  //  EXPLORER / OUTLINE
+  // ─────────────────────────────────────────────────────────────
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js, ${capture}.d.ts.map, ${capture}.d.ts, ${capture}.js.map, ${capture}.test.ts, ${capture}.spec.ts",
+    "*.tsx": "${capture}.ts, ${capture}.module.css, ${capture}.test.tsx, ${capture}.spec.tsx, ${capture}.stories.tsx",
+    "package.json": "package-lock.json, .npmrc, .nvmrc, .node-version, npm-shrinkwrap.json",
+    "tsconfig.json": "tsconfig.*.json, tsconfig.base.json",
+    ".env": ".env.*",
+    "README.md": "AUTHORS, BACKERS*, CHANGELOG*, CITATION*, CODE_OF_CONDUCT*, CODEOWNERS, COMMITMENT, CONTRIBUTING*, CONTRIBUTORS, COPYING*, CREDITS, GOVERNANCE*, HISTORY*, LICENSE*, MAINTAINERS, README*, RELEASE_NOTES*, SECURITY*, SPONSORS*",
+    "next.config.*": "next-env.d.ts, next-i18next.config.*, .env*",
+    "angular.json": "nx.json, project.json, .angular*",
+    ".eslintrc.*": ".eslintignore, eslint.config.*",
+    ".prettierrc*": ".prettierignore, prettier.config.*"
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  //  TELEMETRY / NOISE
+  // ─────────────────────────────────────────────────────────────
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "update.showReleaseNotes": false,
+  "extensions.ignoreRecommendations": false,
+  "security.workspace.trust.untrustedFiles": "prompt",
+
+  // ─────────────────────────────────────────────────────────────
+  //  SETTINGS SYNC — ignore OS-specific bits so Win/Linux play nice
+  // ─────────────────────────────────────────────────────────────
+  "settingsSync.ignoredSettings": [
+    "terminal.integrated.defaultProfile.windows",
+    "terminal.integrated.defaultProfile.linux",
+    "terminal.integrated.profiles.windows",
+    "terminal.integrated.profiles.linux",
+    "python.defaultInterpreterPath"
+  ]
+}
