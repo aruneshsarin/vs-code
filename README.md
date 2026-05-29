@@ -20,6 +20,7 @@ Angular/React-specific extensions are per-project adds.
 | `settings.json` | Your user-level VS Code settings |
 | `keybindings.json` | Custom shortcuts |
 | `extensions.md` | Curated extension list with rationale |
+| `keybindings.md` | **Learning reference** for all shortcuts + a Vim drill tool |
 | `launch.json.template` | Per-project TS debugging presets (copy into a project's `.vscode/`) |
 | `README.md` | This file |
 
