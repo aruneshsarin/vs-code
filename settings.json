@@ -213,6 +213,16 @@
   "prettier.useEditorConfig": true,
 
   // ─────────────────────────────────────────────────────────────
+  //  TESTING — Vitest / Jest via vitest.explorer
+  // ─────────────────────────────────────────────────────────────
+  "vitest.enable": true,
+  "vitest.commandLine": "npx vitest",
+  "vitest.disableWorkspaceWarning": true,
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "testing.followRunningTest": false,
+  "testing.gutterEnabled": true,
+
+  // ─────────────────────────────────────────────────────────────
   //  PER-LANGUAGE FORMATTERS
   // ─────────────────────────────────────────────────────────────
   "[typescript]": {
@@ -273,27 +283,13 @@
   },
 
   // ─────────────────────────────────────────────────────────────
-  //  REACT / NEXT.JS
+  //  EMMET (still useful even without React-specific extensions)
   // ─────────────────────────────────────────────────────────────
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
   "emmet.triggerExpansionOnTab": false,
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-
-  // ─────────────────────────────────────────────────────────────
-  //  ANGULAR
-  // ─────────────────────────────────────────────────────────────
-  "html.format.wrapAttributes": "force-expand-multiline",
 
   // ─────────────────────────────────────────────────────────────
   //  PYTHON
@@ -347,7 +343,7 @@
   ],
 
   // ─────────────────────────────────────────────────────────────
-  //  EXPLORER / OUTLINE
+  //  EXPLORER
   // ─────────────────────────────────────────────────────────────
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": false,
@@ -362,9 +358,10 @@
     ".env": ".env.*",
     "README.md": "AUTHORS, BACKERS*, CHANGELOG*, CITATION*, CODE_OF_CONDUCT*, CODEOWNERS, COMMITMENT, CONTRIBUTING*, CONTRIBUTORS, COPYING*, CREDITS, GOVERNANCE*, HISTORY*, LICENSE*, MAINTAINERS, README*, RELEASE_NOTES*, SECURITY*, SPONSORS*",
     "next.config.*": "next-env.d.ts, next-i18next.config.*, .env*",
-    "angular.json": "nx.json, project.json, .angular*",
     ".eslintrc.*": ".eslintignore, eslint.config.*",
-    ".prettierrc*": ".prettierignore, prettier.config.*"
+    ".prettierrc*": ".prettierignore, prettier.config.*",
+    "vite.config.*": "vitest.config.*, vitest.setup.*",
+    "jest.config.*": "jest.setup.*"
   },
 
   // ─────────────────────────────────────────────────────────────

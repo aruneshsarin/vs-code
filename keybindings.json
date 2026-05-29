@@ -84,6 +84,12 @@
     "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
   },
 
+  // ─── Testing (vitest.explorer wires into VS Code's Test API) ─
+  { "key": "ctrl+; a", "command": "testing.runAll" },
+  { "key": "ctrl+; r", "command": "testing.runAtCursor" },
+  { "key": "ctrl+; d", "command": "testing.debugAtCursor" },
+  { "key": "ctrl+; t", "command": "workbench.view.testing.focus" },
+
   // ─── Toggle Vim quickly while learning ───────────────────────
   {
     "key": "ctrl+shift+alt+v",

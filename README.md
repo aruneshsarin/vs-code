@@ -1,9 +1,12 @@
 # VS Code Setup — TypeScript Full-Stack (Linux + Windows)
 
 A shareable, no-fuss VS Code config for working across Linux and Windows on the
-same flavor of stack: TypeScript (React/Next.js, Angular, Node backends), plus
-occasional Python and C. Tuned for Catppuccin Mocha + Fira Code, with AI
-tab-completion fully disabled (use a sidebar AI app instead).
+same stack: TypeScript (React/Next.js, Node backends), plus occasional Python
+and C. Tuned for Catppuccin Mocha + Fira Code, with AI tab-completion fully
+disabled (use a sidebar AI app instead).
+
+**25 extensions, focused on what you actually use day-to-day.** Angular and
+React-specific extensions removed — add per-project if/when you need them.
 
 ---
 
@@ -33,10 +36,6 @@ tab-completion fully disabled (use a sidebar AI app instead).
   Starship/Oh-My-Posh): <https://github.com/ryanoasis/nerd-fonts/releases>.
   Same install steps. If you don't use a fancy prompt, regular Fira Code is fine
   and the config falls back to it automatically.
-
-### Linux-only
-- Make sure `xdotool` or your distro's clipboard helper is available if you
-  want Vim's system-clipboard integration to feel snappy.
 
 ### Windows-only
 - If PowerShell blocks the install script:
@@ -128,14 +127,23 @@ to the Git repo every few weeks (or before any risky experiment).
 
 ### AI autocomplete
 Disabled in three places (`editor.inlineSuggest.enabled`, the Copilot block,
-and a keybinding override that frees up Tab). Suggestion popups (parameter
-hints, autocomplete on `.`) still work — you just have to explicitly accept
-them. Use Claude/ChatGPT in a sidebar panel or separate window.
+and a keybinding that unbinds Tab from inline-suggest commit). Suggestion
+popups (parameter hints, autocomplete on `.`) still work — you just have to
+explicitly accept them. Use Claude/ChatGPT in a sidebar panel or separate window.
 
 ### Vim
 Set up for **learning**, not for veterans. `jj` or `jk` exits insert mode,
 `Space` is leader, `Ctrl+S/C/V/Z/F` still work like normal (no muscle-memory
 surprises). To toggle Vim off entirely: `Ctrl+Shift+Alt+V`.
+
+### Testing
+The `vitest.explorer` extension runs both Vitest and Jest. You'll see
+gutter run/debug icons next to `test()` and `describe()` blocks, plus a Test
+Explorer sidebar. Custom shortcuts:
+- `Ctrl+; a` — run all tests
+- `Ctrl+; r` — run test at cursor
+- `Ctrl+; d` — debug test at cursor
+- `Ctrl+; t` — focus the test view
 
 ### Format on save
 Prettier handles JS/TS/JSON/Markdown/CSS, Black handles Python, ESLint
@@ -165,8 +173,8 @@ Common one — pinning the workspace TS version:
 }
 ```
 
-Also recommend dropping an `.editorconfig` at the repo root so non-VS-Code
-collaborators stay aligned:
+Drop an `.editorconfig` at the repo root so non-VS-Code collaborators stay
+aligned:
 
 ```ini
 root = true
@@ -182,22 +190,33 @@ trim_trailing_whitespace = true
 indent_size = 4
 ```
 
+### If you start an Angular project
+```bash
+code --install-extension Angular.ng-template
+```
+The Angular Language Service is the only one you really need.
+
+### If you start a Tailwind project
+```bash
+code --install-extension bradlc.vscode-tailwindcss
+```
+
 ---
 
 ## 6. Revisit checklist (3–6 months from now)
 
 When you come back to refresh this, here's what to look at:
 - **VS Code updates**: deprecated settings show as warnings in the JSON editor.
-- **Extension churn**: check `extensions.md` "Optional" section — anything in
-  there you started using daily? Promote it. Anything in the main list you
-  haven't used in months? Drop it.
+- **Extension churn**: anything you installed per-project that you now want
+  globally? Anything in the main list you haven't used in months?
 - **ESLint flat config**: `eslint.useFlatConfig` is already on; if v10+ is out
   by then, this may be the default and you can remove the setting.
 - **TypeScript inlay hints**: I've kept them mostly off because they add
-  visual noise. If you've grown comfortable with the codebase, turn
+  visual noise. If you've grown comfortable, try turning
   `typescript.inlayHints.parameterNames.enabled` up to `"all"`.
 - **Vim**: if you're sticking with it, look at `vim-easymotion` (set to `false`
-  here so it doesn't ambush you while learning) and `relativenumber`.
+  here so it doesn't ambush you while learning) and consider `vim.normalModeKeyBindingsNonRecursive`
+  additions for whatever motions you find yourself reaching for.
 
 ---
 
@@ -206,5 +225,7 @@ When you come back to refresh this, here's what to look at:
 2. Type `cl` in a `.tsx` file → no auto-accept on Tab. Suggestion shows up,
    you can pick it with Enter or ignore it.
 3. `Ctrl+Shift+P` → "Catppuccin Mocha" should be the active theme.
-4. Terminal shows Fira Code (or FiraCode Nerd Font if installed).
-5. `:` in normal mode in any editor → Vim command mode activates.
+4. Open any test file → run/debug icons should show in the gutter next to
+   `test()` blocks (after `npm install` in the project).
+5. Terminal shows Fira Code (or FiraCode Nerd Font if installed).
+6. `:` in normal mode in any editor → Vim command mode activates.

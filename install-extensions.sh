@@ -16,20 +16,13 @@ EXTENSIONS=(
   "dbaeumer.vscode-eslint"
   "esbenp.prettier-vscode"
   "usernamehw.errorlens"
+  "yoavbls.pretty-ts-errors"
   "christian-kohler.path-intellisense"
   "christian-kohler.npm-intellisense"
-  "yoavbls.pretty-ts-errors"
   "streetsidesoftware.code-spell-checker"
 
-  # React / Next.js
-  "dsznajder.es7-react-js-snippets"
-  "formulahendry.auto-rename-tag"
-  "bradlc.vscode-tailwindcss"
-
-  # Angular
-  "Angular.ng-template"
-  "cyrilletuzi.angular-schematics"
-  "johnpapa.Angular2"
+  # Testing
+  "vitest.explorer"
 
   # Node backend
   "humao.rest-client"
@@ -39,27 +32,24 @@ EXTENSIONS=(
   "eamodio.gitlens"
   "mhutchie.git-graph"
 
-  # Python (light)
+  # Python
   "ms-python.python"
   "ms-python.vscode-pylance"
   "ms-python.black-formatter"
   "charliermarsh.ruff"
 
-  # C (light)
+  # C
   "ms-vscode.cpptools"
 
-  # Productivity
+  # Quality of life
   "vscodevim.vim"
-  "aaron-bond.better-comments"
   "EditorConfig.EditorConfig"
-  "oderwat.indent-rainbow"
   "gruntfuggly.todo-tree"
+  "aaron-bond.better-comments"
 
   # Docs / data
   "yzhang.markdown-all-in-one"
-  "bierner.markdown-preview-github-styles"
   "redhat.vscode-yaml"
-  "tamasfe.even-better-toml"
 )
 
 echo "Installing ${#EXTENSIONS[@]} extensions via '$CODE_BIN'..."
