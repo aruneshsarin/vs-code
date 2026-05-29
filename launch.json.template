@@ -1,0 +1,66 @@
+// ─────────────────────────────────────────────────────────────────────────
+//  launch.json — TypeScript debugging presets
+//
+//  This is a PER-PROJECT file. It does NOT go in your User settings folder.
+//  Copy it into a project as:   <project-root>/.vscode/launch.json
+//
+//  Then press F5 (or pick a config from the Run & Debug sidebar).
+//  Most of these assume `tsx` for zero-config TS execution. Install it once:
+//      npm i -D tsx
+//  (tsx runs .ts files directly, no build step — ideal for learning + algos.)
+// ─────────────────────────────────────────────────────────────────────────
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // ▶ The one you'll use most: debug whatever .ts file is open & focused.
+      //   Set a breakpoint, open your file, hit F5. Inline values show live.
+      "name": "TS: Debug current file (tsx)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["tsx", "${file}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "smartStep": true
+    },
+    {
+      // ▶ Debug a fixed entry point (e.g. src/index.ts). Edit "program" below.
+      "name": "TS: Debug src/index.ts (tsx)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["tsx", "${workspaceFolder}/src/index.ts"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "smartStep": true
+    },
+    {
+      // ▶ Debug the Vitest test at your cursor / current test file.
+      //   Pairs with the Ctrl+; d keybinding you already have for quick runs,
+      //   but this gives you the full debugger with breakpoints in tests.
+      "name": "Vitest: Debug current test file",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vitest", "run", "${relativeFile}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "smartStep": true,
+      "autoAttachChildProcesses": true
+    },
+    {
+      // ▶ Attach to an already-running Node process started with --inspect.
+      //   e.g. you ran:  node --inspect-brk --import tsx src/index.ts
+      "name": "Node: Attach to process",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "smartStep": true
+    }
+  ]
+}

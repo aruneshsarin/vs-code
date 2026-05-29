@@ -1,12 +1,13 @@
-# VS Code Setup — TypeScript Full-Stack (Linux + Windows)
+# VS Code Setup — TypeScript-Focused (Linux + Windows)
 
-A shareable, no-fuss VS Code config for working across Linux and Windows on the
-same stack: TypeScript (React/Next.js, Node backends), plus occasional Python
-and C. Tuned for Catppuccin Mocha + Fira Code, with AI tab-completion fully
-disabled (use a sidebar AI app instead).
+A shareable, no-fuss VS Code config for working across Linux and Windows,
+focused on TypeScript (React/Next.js, Node). Tuned for Catppuccin Mocha +
+Fira Code, with AI tab-completion fully disabled (use a sidebar AI app instead).
 
-**25 extensions, focused on what you actually use day-to-day.** Angular and
-React-specific extensions removed — add per-project if/when you need them.
+**15 extensions, focused on what you actually use day-to-day.** Trimmed from a
+larger polyglot setup — Python, C, and backend/API extensions removed. The
+cleanest way to bring them back is a separate VS Code Profile (see below);
+Angular/React-specific extensions are per-project adds.
 
 ---
 
@@ -14,69 +15,65 @@ React-specific extensions removed — add per-project if/when you need them.
 
 | File | Purpose |
 |---|---|
+| `setup.sh` | **One-shot setup for Linux/macOS** (extensions + config + fonts) |
+| `setup.ps1` | **One-shot setup for Windows** (extensions + config + fonts) |
 | `settings.json` | Your user-level VS Code settings |
 | `keybindings.json` | Custom shortcuts |
 | `extensions.md` | Curated extension list with rationale |
-| `install-extensions.sh` | One-shot installer for Linux |
-| `install-extensions.ps1` | One-shot installer for Windows |
+| `launch.json.template` | Per-project TS debugging presets (copy into a project's `.vscode/`) |
 | `README.md` | This file |
 
 ---
 
-## 1. Install prerequisites
+## 1. Quick start (one command)
 
-### Both OSes
-- **VS Code** — make sure `code` is on your PATH. On Windows, the installer
-  has a checkbox for this; on Linux, the official `.deb`/`.rpm`/Snap all
-  configure it.
-- **Fira Code** — download from <https://github.com/tonsky/FiraCode/releases>.
-  - Linux: drop `.ttf` files into `~/.local/share/fonts/` and run `fc-cache -fv`.
-  - Windows: select all `.ttf` files → right-click → Install for all users.
-- **FiraCode Nerd Font** (for the terminal — gives you icons in prompts like
-  Starship/Oh-My-Posh): <https://github.com/ryanoasis/nerd-fonts/releases>.
-  Same install steps. If you don't use a fancy prompt, regular Fira Code is fine
-  and the config falls back to it automatically.
+Make sure VS Code's `code` command is on your PATH first:
+- **Windows**: tick the "Add to PATH" box in the installer.
+- **Linux/macOS**: the official `.deb`/`.rpm`/Snap do it; on macOS run
+  `Cmd+Shift+P` → "Shell Command: Install 'code' command in PATH".
 
-### Windows-only
-- If PowerShell blocks the install script:
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\install-extensions.ps1
-  ```
+Then, from inside this folder:
 
----
+```bash
+# Linux / macOS
+bash setup.sh
+```
 
-## 2. Apply the config
+```powershell
+# Windows  (if it's blocked: powershell -ExecutionPolicy Bypass -File .\setup.ps1)
+.\setup.ps1
+```
 
-### Find your config folder
+That single script:
+1. Installs all 15 extensions.
+2. Copies `settings.json` + `keybindings.json` into your VS Code User folder,
+   **backing up** anything already there (as `*.backup-<timestamp>`).
+3. Downloads and installs **Fira Code** (editor) and **FiraCode Nerd Font**
+   (terminal icons) — latest release, pulled live from GitHub.
+
+Then restart VS Code. The only thing left is Settings Sync (section 3) — it
+needs an interactive login, so the script just prints the steps at the end.
+
+**Useful flags** if you want to run only part of it:
+`--skip-fonts`, `--skip-config`, `--skip-extensions` (bash) or
+`-SkipFonts`, `-SkipConfig`, `-SkipExtensions` (PowerShell).
+To use VSCodium instead of VS Code: set `CODE_BIN=codium` (bash) /
+`$env:CODE_BIN="codium"` (PowerShell) before running.
+
+### Config folder, for reference
+The script handles this automatically, but if you ever need it by hand:
 
 | OS | Path |
 |---|---|
 | Linux | `~/.config/Code/User/` |
+| macOS | `~/Library/Application Support/Code/User/` |
 | Windows | `%APPDATA%\Code\User\` (i.e. `C:\Users\<you>\AppData\Roaming\Code\User\`) |
-
-Drop `settings.json` and `keybindings.json` into that folder, overwriting the
-existing ones. (Back yours up first if you have anything precious.)
-
-### Install extensions
-
-```bash
-# Linux
-chmod +x install-extensions.sh
-./install-extensions.sh
-```
-
-```powershell
-# Windows
-.\install-extensions.ps1
-```
-
-Restart VS Code once it's done.
 
 ---
 
-## 3. Set up sync between machines
+## 2. Set up sync between machines
 
-You asked for **both** Settings Sync and a Git backup. Here's the layout:
+Both Settings Sync and a Git backup, for belt-and-braces. Here's the layout:
 
 ### A. Turn on Settings Sync (primary)
 1. `Ctrl+Shift+P` → **Settings Sync: Turn On**.
@@ -123,7 +120,7 @@ to the Git repo every few weeks (or before any risky experiment).
 
 ---
 
-## 4. What's been tuned
+## 3. What's been tuned
 
 ### AI autocomplete
 Disabled in three places (`editor.inlineSuggest.enabled`, the Copilot block,
@@ -145,14 +142,32 @@ Explorer sidebar. Custom shortcuts:
 - `Ctrl+; d` — debug test at cursor
 - `Ctrl+; t` — focus the test view
 
+### TypeScript debugging (F5)
+The user settings turn on inline variable values (`debug.inlineValues`), so
+when you step through code the current value of each variable shows greyed-out
+right next to it — the fastest way to *see* an algorithm execute, which is
+exactly what you want for fundamentals.
+
+To get one-key debugging in a project, copy `launch.json.template` to
+`<project>/.vscode/launch.json` and install `tsx` once (`npm i -D tsx`). Then:
+- Open any `.ts` file, set a breakpoint (click the gutter), press **F5** →
+  it runs that file directly with no build step.
+- Step with **F10** (over) / **F11** (into) / **Shift+F11** (out).
+- `smartStep` + skipping `node_internals` keeps you in *your* code, not
+  library guts.
+
+The template also includes a "Debug current test file" config for stepping
+through Vitest tests with breakpoints (more than the quick `Ctrl+; d` run).
+
 ### Format on save
-Prettier handles JS/TS/JSON/Markdown/CSS, Black handles Python, ESLint
-auto-fixes on save. `prettier.requireConfig: true` means projects without a
-Prettier config won't get accidentally reformatted.
+Prettier handles JS/TS/JSON/Markdown/CSS, ESLint auto-fixes on save.
+`prettier.requireConfig: true` means projects without a Prettier config won't
+get accidentally reformatted.
 
 ### Theme
-**Catppuccin Mocha** for the muted-but-warm look, with Catppuccin file icons
-and Fluent product icons. To try Gruvbox instead: install `jdinhlife.gruvbox`
+**Catppuccin Mocha** for the muted-but-warm look, with Catppuccin file icons.
+(Product icons use VS Code's default set — the Fluent icons extension was
+dropped in the trim.) To try Gruvbox instead: install `jdinhlife.gruvbox`
 and change `workbench.colorTheme` to `"Gruvbox Dark Medium"`.
 
 ### Cross-platform terminal
@@ -161,7 +176,7 @@ them from overwriting each other.
 
 ---
 
-## 5. Per-project overrides
+## 4. Per-project overrides
 
 For repo-specific tweaks, drop a `.vscode/settings.json` in the project root.
 Common one — pinning the workspace TS version:
@@ -201,9 +216,28 @@ The Angular Language Service is the only one you really need.
 code --install-extension bradlc.vscode-tailwindcss
 ```
 
+### If you go back to polyglot (Python / C)
+Rather than reinstalling globally and re-bloating your TS environment, create a
+separate **Profile**:
+1. `Ctrl+Shift+P` → **Profiles: Create Profile** → name it e.g. "Polyglot",
+   based on your current profile (so it inherits these settings).
+2. In that profile, install what you need:
+   ```bash
+   code --profile "Polyglot" --install-extension ms-python.python
+   code --profile "Polyglot" --install-extension ms-python.vscode-pylance
+   code --profile "Polyglot" --install-extension charliermarsh.ruff
+   code --profile "Polyglot" --install-extension ms-vscode.cpptools
+   ```
+3. Re-add the `[python]` / `[c]` formatter blocks and the `python.analysis.*` /
+   `C_Cpp.*` settings to that profile's `settings.json` (they were removed from
+   the lean TS config). Switch profiles from the gear menu, bottom-left.
+
+This keeps your default TS profile fast — Pylance and cpptools are both heavy,
+slow-activating extensions you don't want loading when you're only touching `.ts`.
+
 ---
 
-## 6. Revisit checklist (3–6 months from now)
+## 5. Revisit checklist (3–6 months from now)
 
 When you come back to refresh this, here's what to look at:
 - **VS Code updates**: deprecated settings show as warnings in the JSON editor.

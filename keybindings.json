@@ -90,6 +90,12 @@
   { "key": "ctrl+; d", "command": "testing.debugAtCursor" },
   { "key": "ctrl+; t", "command": "workbench.view.testing.focus" },
 
+  // ─── Debugging (F5 start/continue is default; these add the rest) ─
+  { "key": "ctrl+; c", "command": "workbench.action.debug.run" },
+  { "key": "ctrl+; s", "command": "workbench.action.debug.stop", "when": "inDebugMode" },
+  { "key": "ctrl+; b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus" },
+  { "key": "ctrl+; l", "command": "workbench.debug.action.focusVariablesView" },
+
   // ─── Toggle Vim quickly while learning ───────────────────────
   {
     "key": "ctrl+shift+alt+v",

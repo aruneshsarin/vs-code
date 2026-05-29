@@ -28,7 +28,8 @@
   "editor.formatOnPaste": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
+    "source.removeUnusedImports": "explicit"
   },
   "editor.suggestSelection": "first",
   "editor.acceptSuggestionOnEnter": "off",
@@ -50,14 +51,12 @@
   },
   "github.copilot.editor.enableAutoCompletions": false,
   "github.copilot.inlineSuggest.enable": false,
-  "tabnine.experimentalAutoImports": false,
 
   // ─────────────────────────────────────────────────────────────
   //  WORKBENCH — theme, icons, layout
   // ─────────────────────────────────────────────────────────────
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.productIconTheme": "fluent-icons",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "workbench.editor.highlightModifiedTabs": true,
@@ -196,6 +195,21 @@
   "npm.fetchOnlinePackageInfo": true,
 
   // ─────────────────────────────────────────────────────────────
+  //  DEBUGGING — tuned for learning TS (step through, see values inline)
+  // ─────────────────────────────────────────────────────────────
+  "debug.inlineValues": "on",
+  "debug.showInlineBreakpointCandidates": true,
+  "debug.toolBarLocation": "docked",
+  "debug.openDebug": "openOnDebugBreak",
+  "debug.internalConsoleOptions": "openOnSessionStart",
+  "debug.javascript.autoAttachFilter": "smart",
+  "debug.javascript.terminalOptions": {
+    "skipFiles": ["<node_internals>/**"]
+  },
+  "debug.terminal.clearBeforeReusing": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+
+  // ─────────────────────────────────────────────────────────────
   //  ESLINT + PRETTIER
   // ─────────────────────────────────────────────────────────────
   "eslint.enable": true,
@@ -269,18 +283,6 @@
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.tabSize": 2
   },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  },
-  "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.tabSize": 4
-  },
 
   // ─────────────────────────────────────────────────────────────
   //  EMMET (still useful even without React-specific extensions)
@@ -290,21 +292,6 @@
     "typescript": "typescriptreact"
   },
   "emmet.triggerExpansionOnTab": false,
-
-  // ─────────────────────────────────────────────────────────────
-  //  PYTHON
-  // ─────────────────────────────────────────────────────────────
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.inlayHints.functionReturnTypes": false,
-  "python.terminal.activateEnvironment": true,
-
-  // ─────────────────────────────────────────────────────────────
-  //  C / C++
-  // ─────────────────────────────────────────────────────────────
-  "C_Cpp.intelliSenseEngine": "default",
-  "C_Cpp.autocompleteAddParentheses": true,
-  "C_Cpp.default.cStandard": "c17",
 
   // ─────────────────────────────────────────────────────────────
   //  VIM — friendly defaults for someone learning
@@ -380,7 +367,6 @@
     "terminal.integrated.defaultProfile.windows",
     "terminal.integrated.defaultProfile.linux",
     "terminal.integrated.profiles.windows",
-    "terminal.integrated.profiles.linux",
-    "python.defaultInterpreterPath"
+    "terminal.integrated.profiles.linux"
   ]
 }
