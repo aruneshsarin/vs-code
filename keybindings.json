@@ -37,63 +37,63 @@
   {
     "key": "ctrl+d",
     "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
+    "when": "editorFocus && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "ctrl+shift+l",
     "command": "editor.action.selectHighlights",
-    "when": "editorFocus"
+    "when": "editorFocus && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "alt+up",
     "command": "editor.action.moveLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "alt+down",
     "command": "editor.action.moveLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "shift+alt+down",
     "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "shift+alt+up",
     "command": "editor.action.copyLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
+    "when": "editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
 
   // ─── Refactor / quick fix ────────────────────────────────────
   {
     "key": "ctrl+.",
     "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
   {
     "key": "f2",
     "command": "editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
 
   // ─── Format ──────────────────────────────────────────────────
   {
     "key": "shift+alt+f",
     "command": "editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && (!vim.active || vim.mode == 'Insert')"
   },
 
   // ─── Testing (vitest.explorer wires into VS Code's Test API) ─
   { "key": "ctrl+; a", "command": "testing.runAll" },
-  { "key": "ctrl+; r", "command": "testing.runAtCursor" },
-  { "key": "ctrl+; d", "command": "testing.debugAtCursor" },
+  { "key": "ctrl+; r", "command": "testing.runAtCursor", "when": "!vim.active || vim.mode == 'Insert'" },
+  { "key": "ctrl+; d", "command": "testing.debugAtCursor", "when": "!vim.active || vim.mode == 'Insert'" },
   { "key": "ctrl+; t", "command": "workbench.view.testing.focus" },
 
   // ─── Debugging (F5 start/continue is default; these add the rest) ─
   { "key": "ctrl+; c", "command": "workbench.action.debug.run" },
   { "key": "ctrl+; s", "command": "workbench.action.debug.stop", "when": "inDebugMode" },
-  { "key": "ctrl+; b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus" },
+  { "key": "ctrl+; b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus && (!vim.active || vim.mode == 'Insert')" },
   { "key": "ctrl+; l", "command": "workbench.debug.action.focusVariablesView" },
 
   // ─── Toggle Vim quickly while learning ───────────────────────

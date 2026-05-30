@@ -25,16 +25,15 @@ automatic before touching anything else.
 | `Ctrl+Shift+P` | Command Palette — run *any* command by name | |
 | `Ctrl+S` | Save (also triggers Prettier + ESLint fix on save) | |
 | `Ctrl+/` | Toggle line comment | |
-| `Ctrl+D` | Select next occurrence of current word (multi-cursor) | ⭐ |
+| `Ctrl+D` | Select next occurrence of current word (multi-cursor, Insert mode only when Vim is on) | ⭐ |
 | `Ctrl+F` | Find in current file | |
 | `Ctrl+Shift+F` | Find across all files | ⭐ |
 | `` Ctrl+` `` | Toggle the integrated terminal | ⭐ |
 | `Ctrl+B` | Toggle the sidebar | |
 
-> **Why `Ctrl+D` is starred:** the command is the default, but this config
-> explicitly re-binds it with a `when: editorFocus` clause so it behaves
-> predictably. Press it repeatedly to add more cursors at each match — then
-> type once to edit them all.
+> **Why `Ctrl+D` is starred:** VS Code uses it for multi-cursor selection, but
+> Vim uses it for half-page down. This config gives `Ctrl+D` back to Vim in
+> Normal mode, while keeping VS Code multi-cursor behavior in Insert mode.
 
 ---
 
@@ -59,12 +58,12 @@ The ones that make you look fast. Each saves a copy-paste-delete dance.
 
 | Keys | Does | |
 |---|---|---|
-| `Alt+↑` / `Alt+↓` | Move the current line (or selection) up/down | ⭐ |
-| `Shift+Alt+↓` / `Shift+Alt+↑` | Copy the current line down/up | ⭐ |
-| `Ctrl+Shift+L` | Select *all* occurrences of current word at once | ⭐ |
-| `Ctrl+.` | Quick Fix / auto-import / refactor suggestions | ⭐ |
-| `F2` | Rename symbol everywhere (safe, project-wide) | ⭐ |
-| `Shift+Alt+F` | Format the document now (Prettier) | ⭐ |
+| `Alt+↑` / `Alt+↓` | Move the current line (or selection) up/down (Insert mode only when Vim is on) | ⭐ |
+| `Shift+Alt+↓` / `Shift+Alt+↑` | Copy the current line down/up (Insert mode only when Vim is on) | ⭐ |
+| `Ctrl+Shift+L` | Select *all* occurrences of current word at once (Insert mode only when Vim is on) | ⭐ |
+| `Ctrl+.` | Quick Fix / auto-import / refactor suggestions (Insert mode only when Vim is on) | ⭐ |
+| `F2` | Rename symbol everywhere (Insert mode only when Vim is on) | ⭐ |
+| `Shift+Alt+F` | Format the document now (Insert mode only when Vim is on) | ⭐ |
 | `Ctrl+Shift+K` | Delete the current line | |
 | `Ctrl+Enter` | Insert line below (from anywhere on the line) | |
 | `Ctrl+]` / `Ctrl+[` | Indent / outdent | |
@@ -116,8 +115,8 @@ first letter of the action.
 | Keys | Does | |
 |---|---|---|
 | `Ctrl+; a` | Run **a**ll tests | ⭐ |
-| `Ctrl+; r` | **R**un the test at your cursor | ⭐ |
-| `Ctrl+; d` | **D**ebug the test at your cursor | ⭐ |
+| `Ctrl+; r` | **R**un the test at your cursor (Insert mode only when Vim is on) | ⭐ |
+| `Ctrl+; d` | **D**ebug the test at your cursor (Insert mode only when Vim is on) | ⭐ |
 | `Ctrl+; t` | Focus the **t**est explorer panel | ⭐ |
 
 ---
@@ -181,6 +180,7 @@ The leader key is **Space**. "Leader then a letter" = a custom shortcut.
 | In Normal mode | Does |
 |---|---|
 | `jj` or `jk` | Exit insert mode (→ Normal) |
+| `Ctrl+D` | Half-page down |
 | `Space` `w` | Save file |
 | `Space` `q` | Close current editor |
 | `Space` `e` | Open the Explorer |
